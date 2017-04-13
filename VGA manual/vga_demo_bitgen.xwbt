@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=U:\Documents\EE354\ee354_insertion_sort\VGA manual\vga_demo.ncd
+OUTFILE=U:\Documents\EE354\ee354_insertion_sort\VGA manual\vga_demo.bit
+FAMILY=Spartan6
+PART=xc6slx16-3csg324
+WORKINGDIR=U:\Documents\EE354\ee354_insertion_sort\VGA manual
+LICENSE=ISE
+USER_INFO=174127445_174127446_210604357_969
