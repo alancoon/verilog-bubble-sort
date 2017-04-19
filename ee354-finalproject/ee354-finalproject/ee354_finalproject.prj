@@ -1,0 +1,2 @@
+verilog work "../hvsync_generator.v"
+verilog work "../ee354-finalproject.v"
