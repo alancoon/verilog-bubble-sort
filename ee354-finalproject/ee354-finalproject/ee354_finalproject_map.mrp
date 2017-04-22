@@ -11,23 +11,23 @@ Target Device  : xc6slx16
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Tue Apr 18 23:05:56 2017
+Mapped Date    : Fri Apr 21 18:35:10 2017
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    0
 Slice Logic Utilization:
-  Number of Slice Registers:                    64 out of  18,224    1%
-    Number used as Flip Flops:                  64
+  Number of Slice Registers:                   393 out of  18,224    2%
+    Number used as Flip Flops:                 393
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        193 out of   9,112    2%
-    Number used as logic:                      190 out of   9,112    2%
-      Number using O6 output only:             148
-      Number using O5 output only:              34
-      Number using O5 and O6:                    8
+  Number of Slice LUTs:                      1,368 out of   9,112   15%
+    Number used as logic:                    1,365 out of   9,112   14%
+      Number using O6 output only:             916
+      Number using O5 output only:              36
+      Number using O5 and O6:                  413
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   2,176    0%
     Number used exclusively as route-thrus:      3
@@ -36,15 +36,15 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                    73 out of   2,278    3%
-  Number of MUXCYs used:                        44 out of   4,556    1%
-  Number of LUT Flip Flop pairs used:          195
-    Number with an unused Flip Flop:           133 out of     195   68%
-    Number with an unused LUT:                   2 out of     195    1%
-    Number of fully used LUT-FF pairs:          60 out of     195   30%
-    Number of unique control sets:               6
+  Number of occupied Slices:                   444 out of   2,278   19%
+  Number of MUXCYs used:                       340 out of   4,556    7%
+  Number of LUT Flip Flop pairs used:        1,372
+    Number with an unused Flip Flop:           979 out of   1,372   71%
+    Number with an unused LUT:                   4 out of   1,372    1%
+    Number of fully used LUT-FF pairs:         389 out of   1,372   28%
+    Number of unique control sets:               9
     Number of slice register sites lost
-      to control set restrictions:              32 out of  18,224    1%
+      to control set restrictions:              47 out of  18,224    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -53,16 +53,16 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        35 out of     232   15%
-    Number of LOCed IOBs:                       35 out of      35  100%
+  Number of bonded IOBs:                        31 out of     232   13%
+    Number of LOCed IOBs:                       31 out of      31  100%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
   Number of RAMB8BWERs:                          0 out of      64    0%
   Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
-  Number of BUFG/BUFGMUXs:                       2 out of      16   12%
-    Number used as BUFGs:                        2
+  Number of BUFG/BUFGMUXs:                       3 out of      16   18%
+    Number used as BUFGs:                        3
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
   Number of ILOGIC2/ISERDES2s:                   0 out of     248    0%
@@ -81,11 +81,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                3.70
+Average Fanout of Non-Clock Nets:                4.99
 
-Peak Memory Usage:  425 MB
-Total REAL time to MAP completion:  9 secs 
-Total CPU time to MAP completion:   7 secs 
+Peak Memory Usage:  442 MB
+Total REAL time to MAP completion:  13 secs 
+Total CPU time to MAP completion:   13 secs 
 
 Table of Contents
 -----------------
@@ -121,10 +121,12 @@ INFO:Security:51 - The XILINXD_LICENSE_FILE environment variable is not set.
 INFO:Security:52 - The LM_LICENSE_FILE environment variable is set to
 '1713@ics-license.usc.edu; 1715@lic-modelsim.usc.edu'.
 INFO:Security:54 - 'xc6slx16' is a WebPack part.
-INFO:LIT:243 - Logical network btnU_IBUF has no load.
-INFO:LIT:395 - The above info message is repeated 1 more times for the following
+INFO:LIT:243 - Logical network LD4 has no load.
+INFO:LIT:395 - The above info message is repeated 3 more times for the following
    (max. 5 shown):
-   btnD_IBUF
+   LD5,
+   LD6,
+   LD7
    To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:LIT:244 - All of the single ended outputs in this design are using slew
@@ -177,18 +179,14 @@ Section 6 - IOB Properties
 | LD1                                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | LD2                                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | LD3                                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
-| LD4                                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
-| LD5                                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
-| LD6                                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
-| LD7                                | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | Mt_St_oe_bar                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | Mt_St_we_bar                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | Mt_ce_bar                          | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | St_ce_bar                          | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | St_rp_bar                          | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
-| Sw0                                | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
-| Sw1                                | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| btnC                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
 | btnD                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| btnR                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
 | btnU                               | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
 | vga_b                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | vga_g                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |

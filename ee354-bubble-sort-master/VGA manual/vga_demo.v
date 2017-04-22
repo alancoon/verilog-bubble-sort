@@ -62,18 +62,20 @@ module vga_demo(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, Sw0, Sw1, 
 				position<=position-2;	
 		end
 
-	reg [31:0] R;
+	//reg [31:0] R;
 	
 	always @(posedge DIV_CLK[21]) 
 		begin
-			for (i = 0; i < 32; i = i + 1)
-				begin
-					R[i] <= CounterY>=0 && CounterY<=(to_sort[i]) && CounterX>=i && CounterX<=(i+1); //to_sort[i]
-				end
+			//for (i = 0; i < 32; i = i + 1)
+				//begin
+					//R[i] <= CounterY>=0 && CounterY<=(to_sort[i]) && CounterX>=i && CounterX<=(i+1); //to_sort[i]
+				//end
 		end
 				
 	//wire R = CounterY>=(position-10) && CounterY<=(position+10) && CounterX[8:5]==7;
 	//wire G = CounterX>100 && CounterX<200; // && CounterY[5:3]==1; // from 7
+	
+	wire R = CounterY>=0 && CounterY<=240 && CounterX>=0 && CounterX<=300;
 	wire G = 0;
 	wire B = 0;
 	

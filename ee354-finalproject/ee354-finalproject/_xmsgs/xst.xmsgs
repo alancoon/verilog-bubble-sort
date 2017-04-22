@@ -5,10 +5,28 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="872" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v" Line 48: Using initial value of <arg fmt="%s" index="1">ymax</arg> since it is never assigned
+<msg type="warning" file="HDLCompiler" num="872" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v" Line 52: Using initial value of <arg fmt="%s" index="1">ymax</arg> since it is never assigned
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1127" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v" Line 35: Assignment to <arg fmt="%s" index="1">button_clk</arg> ignored, since the identifier is never used
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee201_debounce_DPB_SCEN_CCEN_MCEN_r1.v" Line 143: Result of <arg fmt="%d" index="1">32</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">7</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee201_debounce_DPB_SCEN_CCEN_MCEN_r1.v" Line 160: Result of <arg fmt="%d" index="1">8</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">7</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee201_debounce_DPB_SCEN_CCEN_MCEN_r1.v" Line 173: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee201_debounce_DPB_SCEN_CCEN_MCEN_r1.v" Line 178: Result of <arg fmt="%d" index="1">8</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">7</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee201_debounce_DPB_SCEN_CCEN_MCEN_r1.v" Line 191: Result of <arg fmt="%d" index="1">5</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">4</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee201_debounce_DPB_SCEN_CCEN_MCEN_r1.v" Line 196: Result of <arg fmt="%d" index="1">8</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">7</arg>-bit target.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee201_debounce_DPB_SCEN_CCEN_MCEN_r1.v" Line 228: Result of <arg fmt="%d" index="1">8</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">7</arg>-bit target.
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\hvsync_generator.v" Line 34: Result of <arg fmt="%d" index="1">11</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">10</arg>-bit target.
@@ -17,43 +35,52 @@
 <msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\hvsync_generator.v" Line 44: Result of <arg fmt="%d" index="1">11</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">10</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v" Line 174: Net &lt;<arg fmt="%s" index="1">p2_score[3]</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v" Line 344: Result of <arg fmt="%d" index="1">32</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">5</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v" Line 175: Net &lt;<arg fmt="%s" index="1">p1_score[3]</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v" Line 346: Result of <arg fmt="%d" index="1">6</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">5</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v" Line 176: Net &lt;<arg fmt="%s" index="1">state[1]</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v" Line 356: Result of <arg fmt="%d" index="1">6</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">5</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="634" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v" Line 197: Net &lt;<arg fmt="%s" index="1">position[3]</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v" Line 359: Result of <arg fmt="%d" index="1">32</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">5</arg>-bit target.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">btnU</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v</arg>&quot; line <arg fmt="%s" index="2">26</arg>: Output port &lt;<arg fmt="%s" index="3">DPB</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">c0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">btnD</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v</arg>&quot; line <arg fmt="%s" index="2">26</arg>: Output port &lt;<arg fmt="%s" index="3">MCEN</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">c0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p2_score</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v</arg>&quot; line <arg fmt="%s" index="2">26</arg>: Output port &lt;<arg fmt="%s" index="3">CCEN</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">c0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">p1_score</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v</arg>&quot; line <arg fmt="%s" index="2">27</arg>: Output port &lt;<arg fmt="%s" index="3">DPB</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">c1</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">state</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v</arg>&quot; line <arg fmt="%s" index="2">27</arg>: Output port &lt;<arg fmt="%s" index="3">MCEN</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">c1</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">position</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v</arg>&quot; line <arg fmt="%s" index="2">27</arg>: Output port &lt;<arg fmt="%s" index="3">CCEN</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">c1</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="2404" delta="old" > FFs/Latches &lt;<arg fmt="%s" index="1">vga_g</arg>&lt;<arg fmt="%d" index="2">0</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">ee354_finalproject</arg>&gt;.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v</arg>&quot; line <arg fmt="%s" index="2">28</arg>: Output port &lt;<arg fmt="%s" index="3">DPB</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">c2</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="2404" delta="old" > FFs/Latches &lt;<arg fmt="%s" index="1">vga_b</arg>&lt;<arg fmt="%d" index="2">0</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">ee354_finalproject</arg>&gt;.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v</arg>&quot; line <arg fmt="%s" index="2">28</arg>: Output port &lt;<arg fmt="%s" index="3">CCEN</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">c2</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3218" delta="old" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_SSD&lt;3&gt;</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v</arg>&quot; line <arg fmt="%s" index="2">29</arg>: Output port &lt;<arg fmt="%s" index="3">DPB</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">c3</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v</arg>&quot; line <arg fmt="%s" index="2">29</arg>: Output port &lt;<arg fmt="%s" index="3">MCEN</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">c3</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vlabfs.vlab.usc.edu\home$\monteran\Documents\finalproject\ee354-finalproject\ee354-finalproject.v</arg>&quot; line <arg fmt="%s" index="2">29</arg>: Output port &lt;<arg fmt="%s" index="3">CCEN</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">c3</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3231" delta="old" >The small RAM &lt;<arg fmt="%s" index="1">Mram__n1133</arg>&gt; will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
 </msg>
 
 <msg type="info" file="Xst" num="3218" delta="old" >HDL ADVISOR - The RAM &lt;<arg fmt="%s" index="1">Mram_SSD_CATHODES</arg>&gt; will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.

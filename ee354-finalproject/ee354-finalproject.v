@@ -3,11 +3,11 @@
 // VGA verilog template
 // Author:  Da Cheng
 //////////////////////////////////////////////////////////////////////////////////
-module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, Sw0, Sw1, btnU, btnD,
+module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, btnU, btnD, btnC, btnR,
 	St_ce_bar, St_rp_bar, Mt_ce_bar, Mt_St_oe_bar, Mt_St_we_bar,
 	An0, An1, An2, An3, Ca, Cb, Cc, Cd, Ce, Cf, Cg, Dp,
 	LD0, LD1, LD2, LD3, LD4, LD5, LD6, LD7);
-	input ClkPort, Sw0, btnU, btnD, Sw0, Sw1;
+	input ClkPort, btnU, btnD, btnC, btnR;
 	output St_ce_bar, St_rp_bar, Mt_ce_bar, Mt_St_oe_bar, Mt_St_we_bar;
 	output vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b;
 	output An0, An1, An2, An3, Ca, Cb, Cc, Cd, Ce, Cf, Cg, Dp;
@@ -17,12 +17,16 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 	//////////////////////////////////////////////////////////////////////////////////////////
 	
 	/*  LOCAL SIGNALS */
-	wire	reset, start, ClkPort, board_clk, clk, button_clk;
-	
+	wire	reset, start, step, ClkPort, board_clk, clk, button_clk;
+	wire sstep, cstep;
+	assign step = sstep || cstep;
 	BUF BUF1 (board_clk, ClkPort); 	
-	BUF BUF2 (reset, Sw0);
-	BUF BUF3 (start, Sw1);
-	
+	//BUF BUF2 (reset, Sw0);
+	//BUF BUF3 (start, Sw1);
+	ee201_debouncer c0 (.CLK(button_clk), .RESET(reset), .PB(btnR), .DPB(), .SCEN(start), .MCEN(), .CCEN());
+	ee201_debouncer c1 (.CLK(button_clk), .RESET(reset), .PB(btnC), .DPB(), .SCEN(reset), .MCEN(), .CCEN());
+	ee201_debouncer c2 (.CLK(button_clk), .RESET(reset), .PB(btnU), .DPB(), .SCEN(sstep),  .MCEN(cstep), .CCEN());
+	ee201_debouncer c3 (.CLK(button_clk), .RESET(reset), .PB(btnD), .DPB(), .SCEN(ack),   .MCEN(), .CCEN());
 	reg [27:0]	DIV_CLK;
 	always @ (posedge board_clk, posedge reset)  
 	begin : CLOCK_DIVIDER
@@ -48,6 +52,7 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 	reg [9:0]ymax = 380;
 	reg [6:0]xmin = 34;
 	reg [10:0]xmax = 608;
+	//integer index = count1;
 			
 	wire [10:0] xfrom [0:31];
 		assign xfrom[0] = 34; assign xfrom[1] = 52; assign xfrom[2] =	70; assign xfrom[3] = 88; 
@@ -107,51 +112,24 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 		assign col[29] = CounterY>=(ymax-n[29]) & CounterY<=(ymax) & CounterX>=(xfrom[29]) & CounterX<=(xto[29]);
 		assign col[30] = CounterY>=(ymax-n[30]) & CounterY<=(ymax) & CounterX>=(xfrom[30]) & CounterX<=(xto[30]);
 		assign col[31] = CounterY>=(ymax-n[31]) & CounterY<=(ymax) & CounterX>=(xfrom[31]) & CounterX<=(xto[31]);
-		
-	wire R = col[0] | col[1] | col[2] | col[3] | col[4] | col[5] | col[6] | col[7] | col[8] | col[9] | col[10] | col[11] |
+	
+	wire checking;
+		assign checking = CounterY>=(ymax-n[count1]) & CounterY<=(ymax) & CounterX>=(xfrom[count1]) & CounterX<=(xto[count1]);
+	
+
+	wire R = checking;	
+	wire columns = col[0] | col[1] | col[2] | col[3] | col[4] | col[5] | col[6] | col[7] | col[8] | col[9] | col[10] | col[11] |
 				col[12] | col[13] | col[14] | col[15] | col[16] | col[17] | col[18] | col[19] | col[20] | col[21] | col[22] |
 				col[23] | col[24] | col[25] | col[26] | col[27] | col[28] | col[29] | col[30] | col[31];
-	wire G = 0;
-	wire B = 0;
+	wire G = columns;
+	wire B = (state == DONE) & columns;
 	
 	/*wire G = CounterY>=0 && CounterY<=480 && CounterX>=0 && CounterX<=620;
 	wire B = CounterY>=125 && CounterY<=(125+255) && CounterX>=(xmin - 2) && CounterX<=(xmax);*/
 
 
-	wire [7:0] n [0:31];
-		assign n[0] = 255;
-		assign n[1] = 247;
-		assign n[2] = 239;
-		assign n[3] = 231;
-		assign n[4] = 223;
-		assign n[5] = 215;
-		assign n[6] = 207;
-		assign n[7] = 199;
-		assign n[8] = 191;
-		assign n[9] = 183;
-		assign n[10] = 175;
-		assign n[11] = 167;
-		assign n[12] = 159;
-		assign n[13] = 151;
-		assign n[14] = 143;
-		assign n[15] = 135;
-		assign n[16] = 127;
-		assign n[17] = 119;
-		assign n[18] = 111;
-		assign n[19] = 103;
-		assign n[20] = 95;
-		assign n[21] = 87;
-		assign n[22] = 79;
-		assign n[23] = 71;
-		assign n[24] = 63;
-		assign n[25] = 55;
-		assign n[26] = 47;
-		assign n[27] = 39;
-		assign n[28] = 31;
-		assign n[29] = 23;
-		assign n[30] = 15;
-		assign n[31] = 7;
-
+	reg [7:0] n [0:31];
+	
 	always @(posedge clk)
 	begin
 		vga_r <= R & inDisplayArea;
@@ -166,7 +144,7 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 	/////////////////////////////////////////////////////////////////
 	//////////////  	  LD control starts here 	 ///////////////////
 	/////////////////////////////////////////////////////////////////
-	`define QI 			2'b00
+	/*`define QI 			2'b00
 	`define QGAME_1 	2'b01
 	`define QGAME_2 	2'b10
 	`define QDONE 		2'b11
@@ -185,8 +163,13 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 	assign LD3 = (state == `QI);
 	assign LD5 = (state == `QGAME_1);	
 	assign LD6 = (state == `QGAME_2);
-	assign LD7 = (state == `QDONE);
+	assign LD7 = (state == `QDONE);*/
+	wire LD0, LD1, LD2, LD3;
 	
+	assign LD0 = (state == INITIAL);
+	assign LD1 = (state == SORT);
+	assign LD2 = (state == SWAP);
+	assign LD3 = (state == DONE);
 	/////////////////////////////////////////////////////////////////
 	//////////////  	  LD control ends here 	 	////////////////////
 	/////////////////////////////////////////////////////////////////
@@ -199,10 +182,10 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 	wire 	[3:0]	SSD0, SSD1, SSD2, SSD3;
 	wire 	[1:0] ssdscan_clk;
 	
-	assign SSD3 = 4'b1111;
-	assign SSD2 = 4'b1111;
-	assign SSD1 = 4'b1111;
-	assign SSD0 = position[3:0];
+	assign SSD3 = {1'b0, 1'b0, 1'b0, count2[4]};
+	assign SSD2 = count2[3:0];
+	assign SSD1 = {1'b0, 1'b0, 1'b0, count1[4]};
+	assign SSD0 = count1[3:0];
 	
 	// need a scan clk for the seven segment display 
 	// 191Hz (50MHz / 2^18) works well
@@ -251,5 +234,143 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 	
 	/////////////////////////////////////////////////////////////////
 	//////////////  	  SSD control ends here 	 ///////////////////
+	/////////////////////////////////////////////////////////////////
+	
+	/////////////////////////////////////////////////////////////////
+	//////////////  	  SORTING starts here 	 //////////////////////
+	/////////////////////////////////////////////////////////////////
+	//assign step = btnU;
+	reg	[3:0] state;
+	reg [4:0] count1;
+	reg [4:0] count2;
+	//reg start = 1;
+	localparam
+	 INITIAL = 4'b0001,
+	 SORT    = 4'b0010,
+	 SWAP 	= 4'b0100,
+	 DONE  	= 4'b1000,
+	 UNKN  	= 4'bxxxx;
+	
+	always @(posedge button_clk, posedge reset)
+		begin
+			if (reset)
+				state <= INITIAL;
+			else 
+				begin
+					case (state)
+						INITIAL:
+							begin
+								if (start) begin
+									state <= SORT;	
+								end
+									count1 <= 5'b00000;
+									count2 <= 5'b11111;
+									/*n[0] <= 255;
+									n[1] <= 247;
+									n[2] <= 239;
+									n[3] <= 231;
+									n[4] <= 223;
+									n[5] <= 215;
+									n[6] <= 207;
+									n[7] <= 199;
+									n[8] <= 191;
+									n[9] <= 183;
+									n[10] <= 175;
+									n[11] <= 167;
+									n[12] <= 159;
+									n[13] <= 151;
+									n[14] <= 143;
+									n[15] <= 135;
+									n[16] <= 127;
+									n[17] <= 119;
+									n[18] <= 111;
+									n[19] <= 103;
+									n[20] <= 95;
+									n[21] <= 87;
+									n[22] <= 79;
+									n[23] <= 71;
+									n[24] <= 63;
+									n[25] <= 55;
+									n[26] <= 47;
+									n[27] <= 39;
+									n[28] <= 31;
+									n[29] <= 23;
+									n[30] <= 15;
+									n[31] <= 7;*/
+									n[0] <= 143;
+									n[1] <= 103;
+									n[2] <= 252;
+									n[3] <= 87;
+									n[4] <= 24;
+									n[5] <= 23;
+									n[6] <= 65;
+									n[7] <= 89;
+									n[8] <= 60;
+									n[9] <= 29;
+									n[10] <= 64;
+									n[11] <= 254;
+									n[12] <= 42;
+									n[13] <= 110;
+									n[14] <= 167;
+									n[15] <= 9;
+									n[16] <= 181;
+									n[17] <= 105;
+									n[18] <= 75;
+									n[19] <= 95;
+									n[20] <= 21;
+									n[21] <= 75;
+									n[22] <= 44;
+									n[23] <= 19;
+									n[24] <= 101;
+									n[25] <= 26;
+									n[26] <= 103;
+									n[27] <= 204;
+									n[28] <= 123;
+									n[29] <= 178;
+									n[30] <= 126;
+									n[31] <= 9;
+							end	
+						SORT:
+							begin
+								if (step && (count1 < 31) && (n[count1] > n[count1 + 1])) begin
+									/* We should swap because current bar is larger than next bar. */
+									state <= SWAP;
+								end else begin
+									/* We shouldn't swap because the next one is larger. */
+									if (step && (count1 + 1 == count2) && (count2 == 1)) begin
+										state <= DONE;
+									end else if (step && (count1 + 1 == count2) && (count2 != 1)) begin
+										count1 <= 0;
+										count2 <= count2 - 1;
+									end else if (step && ((count1 + 1) != count2)) begin
+										count1 <= count1 + 1;
+									end
+								end 
+						end
+						SWAP:
+							begin
+							n[count1] <= n[count1 + 1];
+							n[count1 + 1] <= n[count1];
+							
+							if (count1 < 31)
+								count1 <= count1 + 1;
+							else if (count1 == 31) begin
+								count1 <= 0;
+								count2 <= count2 - 1;
+							end
+							state <= SORT;
+						end
+						DONE:
+							begin
+								if (ack) begin
+									state <= INITIAL;
+								end
+
+							end
+					endcase
+				end
+		end
+	/////////////////////////////////////////////////////////////////
+	//////////////  	  SORTING control ends here 	 ////////////////
 	/////////////////////////////////////////////////////////////////
 endmodule

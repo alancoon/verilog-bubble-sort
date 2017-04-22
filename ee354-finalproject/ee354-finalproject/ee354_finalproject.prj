@@ -1,2 +1,3 @@
 verilog work "../hvsync_generator.v"
+verilog work "../../ee201_debounce_DPB_SCEN_CCEN_MCEN_r1.v"
 verilog work "../ee354-finalproject.v"

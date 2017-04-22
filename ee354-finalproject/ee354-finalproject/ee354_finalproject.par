@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-GDESK-185::  Tue Apr 18 23:06:12 2017
+GDESK-228::  Fri Apr 21 18:35:28 2017
 
 par -w -intstyle ise -ol high -mt off ee354_finalproject_map.ncd
 ee354_finalproject.ncd ee354_finalproject.pcf 
@@ -36,16 +36,16 @@ Device speed data version:  "PRODUCTION 1.23 2013-10-13".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                    64 out of  18,224    1%
-    Number used as Flip Flops:                  64
+  Number of Slice Registers:                   393 out of  18,224    2%
+    Number used as Flip Flops:                 393
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        193 out of   9,112    2%
-    Number used as logic:                      190 out of   9,112    2%
-      Number using O6 output only:             148
-      Number using O5 output only:              34
-      Number using O5 and O6:                    8
+  Number of Slice LUTs:                      1,368 out of   9,112   15%
+    Number used as logic:                    1,365 out of   9,112   14%
+      Number using O6 output only:             916
+      Number using O5 output only:              36
+      Number using O5 and O6:                  413
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   2,176    0%
     Number used exclusively as route-thrus:      3
@@ -54,12 +54,12 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                    73 out of   2,278    3%
-  Number of MUXCYs used:                        44 out of   4,556    1%
-  Number of LUT Flip Flop pairs used:          195
-    Number with an unused Flip Flop:           133 out of     195   68%
-    Number with an unused LUT:                   2 out of     195    1%
-    Number of fully used LUT-FF pairs:          60 out of     195   30%
+  Number of occupied Slices:                   444 out of   2,278   19%
+  Number of MUXCYs used:                       340 out of   4,556    7%
+  Number of LUT Flip Flop pairs used:        1,372
+    Number with an unused Flip Flop:           979 out of   1,372   71%
+    Number with an unused LUT:                   4 out of   1,372    1%
+    Number of fully used LUT-FF pairs:         389 out of   1,372   28%
     Number of slice register sites lost
       to control set restrictions:               0 out of  18,224    0%
 
@@ -70,16 +70,16 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        35 out of     232   15%
-    Number of LOCed IOBs:                       35 out of      35  100%
+  Number of bonded IOBs:                        31 out of     232   13%
+    Number of LOCed IOBs:                       31 out of      31  100%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
   Number of RAMB8BWERs:                          0 out of      64    0%
   Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
-  Number of BUFG/BUFGMUXs:                       2 out of      16   12%
-    Number used as BUFGs:                        2
+  Number of BUFG/BUFGMUXs:                       3 out of      16   18%
+    Number used as BUFGs:                        3
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
   Number of ILOGIC2/ISERDES2s:                   0 out of     248    0%
@@ -102,37 +102,35 @@ Specific Feature Utilization:
 Overall effort level (-ol):   High 
 Router effort level (-rl):    High 
 
-Starting initial Timing Analysis.  REAL time: 5 secs 
-Finished initial Timing Analysis.  REAL time: 5 secs 
+Starting initial Timing Analysis.  REAL time: 4 secs 
+Finished initial Timing Analysis.  REAL time: 4 secs 
 
-WARNING:Par:288 - The signal btnD_IBUF has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal btnU_IBUF has no load.  PAR will not attempt to route this signal.
 Starting Router
 
 
-Phase  1  : 926 unrouted;      REAL time: 5 secs 
+Phase  1  : 7688 unrouted;      REAL time: 5 secs 
 
-Phase  2  : 857 unrouted;      REAL time: 6 secs 
+Phase  2  : 7032 unrouted;      REAL time: 5 secs 
 
-Phase  3  : 399 unrouted;      REAL time: 8 secs 
+Phase  3  : 3577 unrouted;      REAL time: 7 secs 
 
-Phase  4  : 399 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  4  : 3577 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
 Updating file: ee354_finalproject.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 10 secs 
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 10 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 10 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 10 secs 
 
-Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 10 secs 
 
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 9 secs 
-Total REAL time to Router completion: 9 secs 
-Total CPU time to Router completion: 7 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 10 secs 
+Total REAL time to Router completion: 10 secs 
+Total CPU time to Router completion: 9 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -150,9 +148,11 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|      DIV_CLK_1_BUFG |  BUFGMUX_X2Y3| No   |   19 |  0.017     |  0.880      |
+|      DIV_CLK_1_BUFG |  BUFGMUX_X2Y2| No   |   12 |  0.039     |  0.902      |
 +---------------------+--------------+------+------+------------+-------------+
-|       ClkPort_BUFGP | BUFGMUX_X3Y13| No   |    5 |  0.007     |  0.907      |
+|     DIV_CLK_18_BUFG |  BUFGMUX_X2Y3| No   |  173 |  0.059     |  0.907      |
++---------------------+--------------+------+------+------------+-------------+
+|       ClkPort_BUFGP | BUFGMUX_X3Y13| No   |    5 |  0.004     |  0.865      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -172,8 +172,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_ | SETUP       |     8.179ns|     1.821ns|       0|           0
-  pin" 100 MHz HIGH 50%                     | HOLD        |     0.523ns|            |       0|           0
+  TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_ | SETUP       |     8.153ns|     1.847ns|       0|           0
+  pin" 100 MHz HIGH 50%                     | HOLD        |     0.462ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -184,19 +184,17 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-WARNING:Par:283 - There are 2 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+Total REAL time to PAR completion: 17 secs 
+Total CPU time to PAR completion: 11 secs 
 
-Total REAL time to PAR completion: 36 secs 
-Total CPU time to PAR completion: 9 secs 
-
-Peak Memory Usage:  370 MB
+Peak Memory Usage:  386 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
 Timing: Completed - No errors found.
 
 Number of error messages: 0
-Number of warning messages: 4
+Number of warning messages: 0
 Number of info messages: 0
 
 Writing design to file ee354_finalproject.ncd
