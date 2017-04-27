@@ -1,7 +1,8 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// VGA verilog template
-// Author:  Da Cheng
+// EE354 Final Project - Bubble Sort with VGA Representation
+// Authors: Alan Coon
+//				Carolinne M. Mesquita
 //////////////////////////////////////////////////////////////////////////////////
 module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, btnU, btnD, btnC, btnR,
 	St_ce_bar, St_rp_bar, Mt_ce_bar, Mt_St_oe_bar, Mt_St_we_bar,
@@ -21,8 +22,6 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 	wire sstep, cstep;
 	assign step = sstep || cstep;
 	BUF BUF1 (board_clk, ClkPort); 	
-	//BUF BUF2 (reset, Sw0);
-	//BUF BUF3 (start, Sw1);
 	ee201_debouncer c0 (.CLK(button_clk), .RESET(reset), .PB(btnR), .DPB(), .SCEN(start), .MCEN(), .CCEN());
 	ee201_debouncer c1 (.CLK(button_clk), .RESET(reset), .PB(btnC), .DPB(), .SCEN(reset), .MCEN(), .CCEN());
 	ee201_debouncer c2 (.CLK(button_clk), .RESET(reset), .PB(btnU), .DPB(), .SCEN(sstep),  .MCEN(cstep), .CCEN());
@@ -52,7 +51,6 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 	reg [9:0]ymax = 380;
 	reg [6:0]xmin = 34;
 	reg [10:0]xmax = 608;
-	//integer index = count1;
 			
 	wire [10:0] xfrom [0:31];
 		assign xfrom[0] = 34; assign xfrom[1] = 52; assign xfrom[2] =	70; assign xfrom[3] = 88; 
@@ -63,10 +61,6 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 		assign xfrom[20] = 394; assign xfrom[21] = 412; assign xfrom[22] = 430; assign xfrom[23] = 448;
 		assign xfrom[24] = 466; assign xfrom[25] = 484; assign xfrom[26] = 502; assign xfrom[27] = 520;
 		assign xfrom[28] = 538; assign xfrom[29] = 556; assign xfrom[30] = 574; assign xfrom[31] = 592;
-		/*assign xfrom = {34, 52, 70, 88, 106, 124, 142, 160,
-								178, 196, 214, 232, 250, 268, 286, 304,
-								322, 340, 358, 376, 394, 412, 430, 448,
-								466, 484, 502, 520, 538, 556, 574, 592};*/	
 	wire [10:0] xto [0:31];
 		assign xto[0] = 48; assign xto[1] = 66; assign xto[2] = 84; assign xto[3] = 102; assign xto[4] = 120;
 		assign xto[5] = 138; assign xto[6] = 156; assign xto[7] = 174; assign xto[8] = 192; assign xto[9] = 210;
@@ -75,10 +69,6 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 		assign xto[20] = 408; assign xto[21] = 426; assign xto[22] = 444; assign xto[23] = 462; assign xto[24] = 480;
 		assign xto[25] = 498; assign xto[26] = 516; assign xto[27] = 534; assign xto[28] = 552; assign xto[29] = 570;
 		assign xto[30] = 588; assign xto[31] = 606;
-		/*assign xto = {48, 66, 84, 102, 120, 138, 156, 174,
-							 192, 210, 228, 246, 264, 282, 300, 318,
-							 336, 354, 372, 390, 408, 426, 444, 462,
-							 480, 498, 516, 534, 552, 570, 588, 606};*/	
 	wire [31:0] col;
 		assign col[0] = CounterY>=(ymax-n[0]) & CounterY<=(ymax) & CounterX>=(xfrom[0]) & CounterX<=(xto[0]);
 		assign col[1] = CounterY>=(ymax-n[1]) & CounterY<=(ymax) & CounterX>=(xfrom[1]) & CounterX<=(xto[1]);
@@ -116,16 +106,17 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 	wire checking;
 		assign checking = CounterY>=(ymax-n[count1]) & CounterY<=(ymax) & CounterX>=(xfrom[count1]) & CounterX<=(xto[count1]);
 	
-
-	wire R = checking;	
+	wire R = (checking && ((state == SORT) || (state == SWAP))) || (columns && (state == INITIAL));
+	wire G = (columns && (state == DONE));
+	wire B = (((state == SORT) || (state == SWAP)) & columns);
+	
+	
+	//wire R = checking;	
 	wire columns = col[0] | col[1] | col[2] | col[3] | col[4] | col[5] | col[6] | col[7] | col[8] | col[9] | col[10] | col[11] |
 				col[12] | col[13] | col[14] | col[15] | col[16] | col[17] | col[18] | col[19] | col[20] | col[21] | col[22] |
 				col[23] | col[24] | col[25] | col[26] | col[27] | col[28] | col[29] | col[30] | col[31];
-	wire G = columns;
-	wire B = (state == DONE) & columns;
-	
-	/*wire G = CounterY>=0 && CounterY<=480 && CounterX>=0 && CounterX<=620;
-	wire B = CounterY>=125 && CounterY<=(125+255) && CounterX>=(xmin - 2) && CounterX<=(xmax);*/
+	//wire G = columns;
+	//wire B = (state == DONE) & columns;
 
 
 	reg [7:0] n [0:31];
@@ -144,26 +135,6 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 	/////////////////////////////////////////////////////////////////
 	//////////////  	  LD control starts here 	 ///////////////////
 	/////////////////////////////////////////////////////////////////
-	/*`define QI 			2'b00
-	`define QGAME_1 	2'b01
-	`define QGAME_2 	2'b10
-	`define QDONE 		2'b11
-	
-	reg [3:0] p2_score;
-	reg [3:0] p1_score;
-	reg [1:0] state;
-	wire LD0, LD1, LD2, LD3, LD4, LD5, LD6, LD7;
-	
-	assign LD0 = (p1_score == 4'b1010);
-	assign LD1 = (p2_score == 4'b1010);
-	
-	assign LD2 = start;
-	assign LD4 = reset;
-	
-	assign LD3 = (state == `QI);
-	assign LD5 = (state == `QGAME_1);	
-	assign LD6 = (state == `QGAME_2);
-	assign LD7 = (state == `QDONE);*/
 	wire LD0, LD1, LD2, LD3;
 	
 	assign LD0 = (state == INITIAL);
@@ -182,10 +153,10 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 	wire 	[3:0]	SSD0, SSD1, SSD2, SSD3;
 	wire 	[1:0] ssdscan_clk;
 	
-	assign SSD3 = {1'b0, 1'b0, 1'b0, count2[4]};
-	assign SSD2 = count2[3:0];
-	assign SSD1 = {1'b0, 1'b0, 1'b0, count1[4]};
-	assign SSD0 = count1[3:0];
+	assign SSD3 = 4'b1111; //{1'b0, 1'b0, 1'b0, count2[4]};
+	assign SSD2 = 4'b1111; //count2[3:0];
+	assign SSD1 = 4'b1111; //{1'b0, 1'b0, 1'b0, count1[4]};
+	assign SSD0 = 4'b1111; //count1[3:0];
 	
 	// need a scan clk for the seven segment display 
 	// 191Hz (50MHz / 2^18) works well
@@ -265,38 +236,7 @@ module ee354_finalproject(ClkPort, vga_h_sync, vga_v_sync, vga_r, vga_g, vga_b, 
 								end
 									count1 <= 5'b00000;
 									count2 <= 5'b11111;
-									/*n[0] <= 255;
-									n[1] <= 247;
-									n[2] <= 239;
-									n[3] <= 231;
-									n[4] <= 223;
-									n[5] <= 215;
-									n[6] <= 207;
-									n[7] <= 199;
-									n[8] <= 191;
-									n[9] <= 183;
-									n[10] <= 175;
-									n[11] <= 167;
-									n[12] <= 159;
-									n[13] <= 151;
-									n[14] <= 143;
-									n[15] <= 135;
-									n[16] <= 127;
-									n[17] <= 119;
-									n[18] <= 111;
-									n[19] <= 103;
-									n[20] <= 95;
-									n[21] <= 87;
-									n[22] <= 79;
-									n[23] <= 71;
-									n[24] <= 63;
-									n[25] <= 55;
-									n[26] <= 47;
-									n[27] <= 39;
-									n[28] <= 31;
-									n[29] <= 23;
-									n[30] <= 15;
-									n[31] <= 7;*/
+									// Generate the following values using rand_gen.py:
 									n[0] <= 143;
 									n[1] <= 103;
 									n[2] <= 252;
